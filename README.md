@@ -1,6 +1,5 @@
-# ProjectKelompok10
-Tes 
-Anggota Kelompok :
-- M. Bayu aji (F1D02310143)
-- Fairuza Luthfiana (F1D02310111)
-- Zarizky Meidyansyah (F1D02310099)
+Kelompok 10
+
+F1D02310144	M. BAYU AJI
+F1D02310111	FAIRUZA LUTFIANA
+F1D02310099	ZARIZKY MEIDYANSYAH
