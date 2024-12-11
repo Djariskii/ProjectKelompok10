@@ -6,4 +6,6 @@ class Match {
         this.team1 = team1;
         this.team2 = team2;
     }  
+
+    
 }
