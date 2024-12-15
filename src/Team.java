@@ -7,7 +7,7 @@ class Team implements Comparable<Team> {
     private int points;
     private int goalsFor;
     private int goalsAgainst;
-    private List<Player> players; // Menggunakan Player sebagai tipe data
+    private List<Player> players;
 
     public Team(String name) {
         this.name = name;
