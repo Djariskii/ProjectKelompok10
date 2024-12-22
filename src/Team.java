@@ -52,7 +52,7 @@ public class Team {
 
     public void displayPlayers() {
         System.out.println("Pemain dari tim: " + name);
-        players.displayAllPlayers(); 
+        players.displayAllPlayers();
     }
 
     @Override

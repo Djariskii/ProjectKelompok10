@@ -1,7 +1,7 @@
 public class FixtureQueue {
     private class Node {
         Fixture fixture; 
-        Node next;
+        Node next;       
 
         Node(Fixture fixture) {
             this.fixture = fixture;
@@ -18,7 +18,7 @@ public class FixtureQueue {
             front = rear = newNode; 
         } else {
             rear.next = newNode;   
-            rear = newNode;        
+            rear = newNode;
         }
     }
 
@@ -28,7 +28,7 @@ public class FixtureQueue {
         }
 
         Fixture fixture = front.fixture; 
-        front = front.next;              
+        front = front.next;
 
         if (front == null) {
             rear = null; 
@@ -44,8 +44,7 @@ public class FixtureQueue {
     public void displayAllFixtures() {
         Node current = front;
         while (current != null) {
-            System.out.print(current.fixture.getHomeTeam().getName()+ "(Home)" + " VS ");
-            System.out.println(current.fixture.getAwayTeam().getName() + "(Away)"); // Gunakan toString() dari Fixture
+            System.out.print(current.fixture); 
             current = current.next;
         }
     }

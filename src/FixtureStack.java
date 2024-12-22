@@ -1,32 +1,51 @@
-class FixtureStack {
-    private class StackNode {
-        Fixture fixture;
-        StackNode next;
+public class FixtureStack {
+    private class Node {
+        Fixture fixture; 
+        Node next;       
 
-        StackNode(Fixture fixture) {
+        Node(Fixture fixture) {
             this.fixture = fixture;
             this.next = null;
         }
     }
 
-    private StackNode top;
+    private Node top; 
 
     public void push(Fixture fixture) {
-        StackNode newNode = new StackNode(fixture);
-        newNode.next = top;
-        top = newNode;
+        Node newNode = new Node(fixture);
+        newNode.next = top; 
+        top = newNode;      
     }
 
     public Fixture pop() {
-        if (top == null) return null;
+        if (top == null) {
+            return null; 
+        }
 
-        Fixture fixture = top.fixture;
-        top = top.next;
+        Fixture fixture = top.fixture; 
+        top = top.next;                
         return fixture;
     }
 
     public boolean isEmpty() {
         return top == null;
     }
+
+    public void displayAllFixtures() {
+        Node current = top;
+        while (current != null) {
+            System.out.println(current.fixture); 
+            current = current.next;
+        }
+    }
+
+    public int size() {
+        int count = 0;
+        Node current = top;
+        while (current != null) {
+            count++;
+            current = current.next;
+        }
+        return count;
+    }
 }
- 

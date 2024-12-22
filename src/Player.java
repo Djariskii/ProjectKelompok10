@@ -1,14 +1,13 @@
 public class Player {
     private String name;
     private String position;
-    private int shirtNumber;
+    private int jerseyNumber;
 
-    public Player(String name, String position, int shirtNumber) {
+    public Player(String name, String position, int jerseyNumber) {
         this.name = name;
         this.position = position;
-        this.shirtNumber = shirtNumber;
+        this.jerseyNumber = jerseyNumber;
     }
-
     public String getName() {
         return name;
     }
@@ -17,12 +16,11 @@ public class Player {
         return position;
     }
 
-    public int getShirtNumber() {
-        return shirtNumber;
+    public int jerseyNumber() {
+        return jerseyNumber;
     }
-
     @Override
     public String toString() {
-        return String.format("%-20s %-15s %d", name, position, shirtNumber);
+        return String.format("%-20s %-15s %2d", name, position, jerseyNumber);
     }
 }

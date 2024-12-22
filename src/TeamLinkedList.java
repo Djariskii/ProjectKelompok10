@@ -9,7 +9,7 @@ public class TeamLinkedList {
         }
     }
 
-    private Node head;
+    private Node head; 
 
     public void add(Team team) {
         Node newNode = new Node(team);
@@ -18,23 +18,26 @@ public class TeamLinkedList {
         } else {
             Node current = head;
             while (current.next != null) {
-                current = current.next;
+                current = current.next; 
             }
-            current.next = newNode;
+            current.next = newNode; 
         }
     }
+
     public Team searchByName(String name) {
         Node current = head;
         while (current != null) {
             if (current.team.getName().equalsIgnoreCase(name)) {
-                return current.team;
+                return current.team; 
             }
             current = current.next;
         }
-        return null;
+        return null; 
     }
+
     public void sort() {
         if (head == null || head.next == null) return; 
+
         boolean swapped;
         do {
             swapped = false;
@@ -48,10 +51,11 @@ public class TeamLinkedList {
                 }
                 current = current.next;
             }
-        } while (swapped);
+        } while (swapped); 
     }
+
     public boolean remove(String name) {
-        if (head == null) return false;
+        if (head == null) return false; 
 
         if (head.team.getName().equalsIgnoreCase(name)) {
             head = head.next; 
@@ -69,6 +73,7 @@ public class TeamLinkedList {
 
         return false; 
     }
+
     public void displayAllTeams() {
         Node current = head;
         while (current != null) {
@@ -76,9 +81,11 @@ public class TeamLinkedList {
             current = current.next;
         }
     }
+
     public Iterator iterator() {
         return new Iterator(head);
     }
+
     class Iterator {
         private Node current;
 
