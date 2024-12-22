@@ -3,8 +3,9 @@ import java.util.Scanner;
 public class LaLigaManagementSystem {
     private TeamLinkedList teamList = new TeamLinkedList(); 
     private FixtureQueue fixtures = new FixtureQueue();    
-    private FixtureStack history = new FixtureStack();     
+    private FixtureStack history = new FixtureStack();   
     private TeamBinarySearchTree teamTree = new TeamBinarySearchTree(); 
+    private boolean logoDisplayed = false; 
 
     public void run() {
         initializeTeams(); 
@@ -12,44 +13,9 @@ public class LaLigaManagementSystem {
 
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println("""
-                                        ::::::::::::::           :::::::::::::::.             
-                                     .+************=           =**************-              
-                                    -*************:          .+*************+:               
-                                  .=************+.          -**************=.                
-                                 :+************-          .+**************:                  
-                                -************+.          :+*************+.                   
-                              .+************=           =**************-                     
-                             :*************:          .+*************+.                      
-                            =************=.          -**************=                        
-                          :+************-           +*************+:                         
-                         -************+.          :**************=                           
-                        +************-          .=**************-                            
-                        -***********+:          .+*************+.                             
-                        =***********+========-:=**************=                               
-                        .****************+-:..+*************+:                                
-                        .+**********+=:.   :**************=.                                 
-                          :*****+=:.     .=**************-                                   
-                           .==:.        :+*************+.                                    
-                                       -**************=                                      
-                                     .+*************+:                                       
-                                     +*************=                                         
-                                    :*************+:::::::::::.                              
-                                    .*********************+=:.                               
-                                     :****************+=-.                                   
-                                      .=***********=-.                                       
-                                        :+*****=-.                                           
-                                          ==-:                                               
-            .:::             :::::.     .:::.        ::::     .:----::.       :::::.        
-            =***.           -*****+     -***:        +**+   -+*********=     :******.       
-            =***.           ***=+**-    -***.        +**+  :***-::::-***-    +**=+**=       
-            =***.          -**+ -***    -***.        +**+  -***.            -*** :***:      
-            =***.         .***-  +**=   -***:        +**+  -***:  :--=-.    +**=  +**+      
-            =***.         =**+   -***.  -***:        +**+  -***:  =****+:  -***.  :***:     
-            =***.        .***+----***=  -***.        +**+  -***.  ...***= .***+----+**+     
-            =***:::::::  +***+=-. -***: -***-::::::  +**+  :***-....:***- =****=:. :***:    
-            =********+ .***-      ***=  =*********  +**+   -**********=  ***=      +**+    
-            """);
+            if (!logoDisplayed) {
+                displayLogo();  
+                logoDisplayed = true;  }
             System.out.println("\nMenu:");
             System.out.println("1. Tampilkan Klasemen");
             System.out.println("2. Tampilkan Jadwal Pertandingan");
@@ -75,6 +41,47 @@ public class LaLigaManagementSystem {
                 default -> System.out.println("Pilihan tidak valid.");
             }
         }
+    }
+
+    private void displayLogo() {
+        System.out.println(""" 
+                                ::::::::::::::           :::::::::::::::.             
+                             .+************=           =**************-              
+                            -*************:          .+*************+:               
+                          .=************+.          -**************=.               
+                         :+************-          .+**************:                  
+                        -************+.          :+*************+.                   
+                      .+************=           =**************-                     
+                     :*************:          .+*************+.                      
+                    =************=.          -**************=                        
+                  :+************-           +*************+:                         
+                 -************+.          :**************=                           
+                +************-          .=**************-                            
+                -***********+:          .+*************+.                             
+                =***********+========-:=**************=                               
+                .****************+-:..+*************+:                                
+                .+**********+=:.   :**************=.                                 
+                  :*****+=:.     .=**************-                                   
+                   .==:.        :+*************+.                                    
+                                   -**************=                                      
+                                 .+*************+:                                      
+                                 +*************=                                        
+                                :*************+:::::::::::.                              
+                                .*********************+=:.                                
+                                 :****************+=-.                                   
+                                  .=***********=-.                                       
+                                    :+*****=-.                                           
+                                      ==-:                                               
+        .:::             :::::.     .:::.        ::::     .:----::.       :::::.        
+        =***.           -*****+     -***:        +**+   -+*********=     :******.       
+        =***.           ***=+**-    -***.        +**+  :***-::::-***-    +**=+**=       
+        =***.          -**+ -***    -***.        +**+  -***.            -*** :***:      
+        =***.         .***-  +**=   -***:        +**+  -***:  :--=-.    +**=  +**+      
+        =***.         =**+   -***.  -***:        +**+  -***:  =****+:  -***.  :***:     
+        =***.        .***+----***=  -***.        +**+  -***.  ...***= .***+----+**+     
+        =***:::::::  +***+=-. -***: -***-::::::  +**+  :***-....:***- =****=:. :***:    
+        =********+ .***-      ***=  =*********  +**+   -**********=  ***=      +**+    
+        """);
     }
 
     // Inisialisasi tim
@@ -113,13 +120,13 @@ public class LaLigaManagementSystem {
     // Sevilla
     Team sevilla = new Team("Sevilla");
     sevilla.addPlayer(new Player("Yassine Bounou", "Goalkeeper", 13));
-    sevilla.addPlayer(new Player("José Ángel Carmona", "Defender", 3));
+    sevilla.addPlayer(new Player("Jose Angel Carmona", "Defender", 3));
     sevilla.addPlayer(new Player("Sergio Ramos", "Defender", 4));
     sevilla.addPlayer(new Player("Nemanja Gudelj", "Midfielder", 27));
-    sevilla.addPlayer(new Player("Álex Telles", "Defender", 17));
+    sevilla.addPlayer(new Player("Alex Telles", "Defender", 17));
     sevilla.addPlayer(new Player("Fernando Reges", "Midfielder", 5));
-    sevilla.addPlayer(new Player("Jesús Navas", "Midfielder", 16));
-    sevilla.addPlayer(new Player("Érik Lamela", "Forward", 18));
+    sevilla.addPlayer(new Player("Jesus Navas", "Midfielder", 16));
+    sevilla.addPlayer(new Player("Erik Lamela", "Forward", 18));
     sevilla.addPlayer(new Player("Bryan Gil", "Forward", 11));
     sevilla.addPlayer(new Player("Yaw Yeboah", "Forward", 20));
     teamList.add(sevilla);
@@ -128,45 +135,45 @@ public class LaLigaManagementSystem {
     // Atletico Madrid
     Team atleticoMadrid = new Team("Atletico Madrid");
     atleticoMadrid.addPlayer(new Player("Jan Oblak", "Goalkeeper", 13));
-    atleticoMadrid.addPlayer(new Player("José María Giménez", "Defender", 2));
-    atleticoMadrid.addPlayer(new Player("Stefan Savić", "Defender", 15));
+    atleticoMadrid.addPlayer(new Player("Jose Maria Gimenez", "Defender", 2));
+    atleticoMadrid.addPlayer(new Player("Stefan Savic", "Defender", 15));
     atleticoMadrid.addPlayer(new Player("Axel Witsel", "Midfielder", 20));
     atleticoMadrid.addPlayer(new Player("Koke", "Midfielder", 6));
-    atleticoMadrid.addPlayer(new Player("Saúl Ñíguez", "Midfielder", 8));
+    atleticoMadrid.addPlayer(new Player("Saul Niguez", "Midfielder", 8));
     atleticoMadrid.addPlayer(new Player("Antoine Griezmann", "Forward", 7));
     atleticoMadrid.addPlayer(new Player("Memphis Depay", "Forward", 9));
-    atleticoMadrid.addPlayer(new Player("Álvaro Morata", "Forward", 19));
-    atleticoMadrid.addPlayer(new Player("Ángel Correa", "Forward", 10));
+    atleticoMadrid.addPlayer(new Player("Alvaro Morata", "Forward", 19));
+    atleticoMadrid.addPlayer(new Player("Angel Correa", "Forward", 10));
     atleticoMadrid.addPlayer(new Player("Rodrigo de Paul", "Midfielder", 5));
     teamList.add(atleticoMadrid);
     teamTree.insert(atleticoMadrid);
 
     // Real Sociedad
     Team realSociedad = new Team("Real Sociedad");
-    realSociedad.addPlayer(new Player("Álex Remiro", "Goalkeeper", 1));
+    realSociedad.addPlayer(new Player("Alex Remiro", "Goalkeeper", 1));
     realSociedad.addPlayer(new Player("Diego Rico", "Defender", 15));
     realSociedad.addPlayer(new Player("Robin Le Normand", "Defender", 24));
     realSociedad.addPlayer(new Player("Aritz Elustondo", "Defender", 6));
     realSociedad.addPlayer(new Player("Mikel Oyarzabal", "Forward", 10));
-    realSociedad.addPlayer(new Player("Martín Zubimendi", "Midfielder", 8));
+    realSociedad.addPlayer(new Player("Martin Zubimendi", "Midfielder", 8));
     realSociedad.addPlayer(new Player("Mikel Merino", "Midfielder", 18));
     realSociedad.addPlayer(new Player("Takefusa Kubo", "Forward", 14));
     realSociedad.addPlayer(new Player("Alexander Isak", "Forward", 11));
-    realSociedad.addPlayer(new Player("Brais Méndez", "Midfielder", 21));
-    realSociedad.addPlayer(new Player("Carlos Fernández", "Forward", 9));
+    realSociedad.addPlayer(new Player("Brais Mendez", "Midfielder", 21));
+    realSociedad.addPlayer(new Player("Carlos Fernandez", "Forward", 9));
     teamList.add(realSociedad);
     teamTree.insert(realSociedad);
 
     Team villarreal = new Team("Villarreal");
-    villarreal.addPlayer(new Player("Gerónimo Rulli", "Goalkeeper", 1));
+    villarreal.addPlayer(new Player("Geronimo Rulli", "Goalkeeper", 1));
     villarreal.addPlayer(new Player("Pau Torres", "Defender", 15));
-    villarreal.addPlayer(new Player("Raúl Albiol", "Defender", 4));
-    villarreal.addPlayer(new Player("José Luis Morales", "Forward", 11));
+    villarreal.addPlayer(new Player("Raul Albiol", "Defender", 4));
+    villarreal.addPlayer(new Player("Jose Luis Morales", "Forward", 11));
     villarreal.addPlayer(new Player("Dani Parejo", "Midfielder", 10));
     villarreal.addPlayer(new Player("Francis Coquelin", "Midfielder", 19));
     villarreal.addPlayer(new Player("Gerard Moreno", "Forward", 9));
     villarreal.addPlayer(new Player("Yeremy Pino", "Forward", 21));
-    villarreal.addPlayer(new Player("Moi Gómez", "Midfielder", 7));
+    villarreal.addPlayer(new Player("Moi Gomez", "Midfielder", 7));
     villarreal.addPlayer(new Player("Arnaut Danjuma", "Forward", 37));
     villarreal.addPlayer(new Player("Samuel Chukwueze", "Forward", 20));
     teamList.add(villarreal);
@@ -182,24 +189,24 @@ public class LaLigaManagementSystem {
     valencia.addPlayer(new Player("André Almeida", "Midfielder", 20));
     valencia.addPlayer(new Player("Samu Castillejo", "Forward", 7));
     valencia.addPlayer(new Player("Pepelu", "Midfielder", 17));
-    valencia.addPlayer(new Player("Fran Pérez", "Midfielder", 8));
+    valencia.addPlayer(new Player("Fran Perez", "Midfielder", 8));
     valencia.addPlayer(new Player("Ilaix Moriba", "Midfielder", 15));
-    valencia.addPlayer(new Player("Gonçalo Guedes", "Forward", 11));
+    valencia.addPlayer(new Player("Goncalo Guedes", "Forward", 11));
     teamList.add(valencia);
     teamTree.insert(valencia);
 
     // Athletic Bilbao
     Team athleticBilbao = new Team("Athletic Bilbao");
-    athleticBilbao.addPlayer(new Player("Unai Simón", "Goalkeeper", 1));
-    athleticBilbao.addPlayer(new Player("Yeray Álvarez", "Defender", 4));
+    athleticBilbao.addPlayer(new Player("Unai Simon", "Goalkeeper", 1));
+    athleticBilbao.addPlayer(new Player("Yeray Alvarez", "Defender", 4));
     athleticBilbao.addPlayer(new Player("Inigo Martinez", "Defender", 5));
     athleticBilbao.addPlayer(new Player("Ander Herrera", "Midfielder", 11));
     athleticBilbao.addPlayer(new Player("Oihan Sancet", "Midfielder", 8));
     athleticBilbao.addPlayer(new Player("Nico Williams", "Forward", 7));
-    athleticBilbao.addPlayer(new Player("Iñaki Williams", "Forward", 9));
-    athleticBilbao.addPlayer(new Player("Álex Berenguer", "Forward", 19));
-    athleticBilbao.addPlayer(new Player("Raúl García", "Midfielder", 22));
-    athleticBilbao.addPlayer(new Player("Dani García", "Midfielder", 14));
+    athleticBilbao.addPlayer(new Player("Inaki Williams", "Forward", 9));
+    athleticBilbao.addPlayer(new Player("Alex Berenguer", "Forward", 19));
+    athleticBilbao.addPlayer(new Player("Raul Garcia", "Midfielder", 22));
+    athleticBilbao.addPlayer(new Player("Dani Garcia", "Midfielder", 14));
     athleticBilbao.addPlayer(new Player("Oscar de Marcos", "Midfielder", 17));
     teamList.add(athleticBilbao);
     teamTree.insert(athleticBilbao);
@@ -209,12 +216,12 @@ public class LaLigaManagementSystem {
     realBetis.addPlayer(new Player("Claudio Bravo", "Goalkeeper", 1));
     realBetis.addPlayer(new Player("Aitor Ruibal", "Midfielder", 14));
     realBetis.addPlayer(new Player("Luiz Felipe", "Defender", 3));
-    realBetis.addPlayer(new Player("Guido Rodríguez", "Midfielder", 5));
+    realBetis.addPlayer(new Player("Guido Rodriguez", "Midfielder", 5));
     realBetis.addPlayer(new Player("Sergio Canales", "Midfielder", 10));
     realBetis.addPlayer(new Player("Fekir", "Forward", 8));
     realBetis.addPlayer(new Player("William Carvalho", "Midfielder", 14));
     realBetis.addPlayer(new Player("Juan Miranda", "Defender", 15));
-    realBetis.addPlayer(new Player("Ayoze Pérez", "Forward", 17));
+    realBetis.addPlayer(new Player("Ayoze Perez", "Forward", 17));
     realBetis.addPlayer(new Player("Rodri", "Forward", 9));
     realBetis.addPlayer(new Player("Borja Iglesias", "Forward", 9));
     teamList.add(realBetis);
@@ -321,7 +328,7 @@ public class LaLigaManagementSystem {
     getafe.addPlayer(new Player("Okay Yokuslu", "Midfielder", 5));
     getafe.addPlayer(new Player("Erick Cabaco", "Defender", 15));
     getafe.addPlayer(new Player("Portu", "Forward", 7));
-    getafe.addPlayer(new Player("Damián Suarez", "Defender", 22));
+    getafe.addPlayer(new Player("Damian Suarez", "Defender", 22));
     teamList.add(getafe);
     teamTree.insert(getafe);
     
@@ -385,28 +392,97 @@ public class LaLigaManagementSystem {
     teamList.add(alaves);
     teamTree.insert(alaves);
     }
-    // Menghasilkan jadwal pertandingan
+   
     private void generateFixtures() {
-        TeamLinkedList.Iterator iterator1 = teamList.iterator();
-        while (iterator1.hasNext()) {
-            Team team1 = iterator1.next();
-            TeamLinkedList.Iterator iterator2 = teamList.iterator();
-            while (iterator2.hasNext()) {
-                Team team2 = iterator2.next();
-                if (!team1.equals(team2)) {
-                    fixtures.enqueue(new Fixture(team1, team2));
+        int totalTeams = 20;
+        Team[] teams = new Team[totalTeams];
+        int index = 0;
+        
+        TeamLinkedList.Iterator iterator = teamList.iterator();
+        while (iterator.hasNext()) {
+            teams[index++] = iterator.next();
+        }
+        
+        Fixture[][] allFixtures = new Fixture[totalTeams - 1][totalTeams / 2];
+        int rounds = totalTeams - 1;
+        int matchesPerRound = totalTeams / 2;
+        
+        for (int round = 0; round < rounds; round++) {
+            for (int match = 0; match < matchesPerRound; match++) {
+                int home = (round + match) % (totalTeams - 1);
+                int away = (totalTeams - 1 - match + round) % (totalTeams - 1);
+                
+                if (match == 0) {
+                    away = totalTeams - 1;
+                }
+                if (round % 2 == 1) {
+                    allFixtures[round][match] = new Fixture(teams[away], teams[home]);
+                } else {
+                    allFixtures[round][match] = new Fixture(teams[home], teams[away]);
                 }
             }
         }
+        shuffleRounds(allFixtures);
+        for (int round = 0; round < rounds; round++) {
+            for (int match = 0; match < matchesPerRound; match++) {
+                fixtures.enqueue(allFixtures[round][match]);
+            }
+        }
     }
-
+    private void shuffleRounds(Fixture[][] allFixtures) {
+        int rounds = allFixtures.length;
+       
+        for (int i = rounds - 1; i > 0; i--) {
+            int j = (int) (Math.random() * (i + 1));
+            Fixture[] temp = allFixtures[i];
+            allFixtures[i] = allFixtures[j];
+            allFixtures[j] = temp;
+        }
+    }
+    
+    private void displayFixtures() {
+        System.out.println("\nJadwal Pertandingan:");
+        if (fixtures.isEmpty()) {
+            System.out.println("Tidak ada pertandingan yang dijadwalkan.");
+            return;
+        }
+    
+        int currentDay = 1; 
+        int matchesPerDay = 10; 
+        int matchCount = 0;
+        FixtureQueue tempQueue = new FixtureQueue();
+    
+        while (!fixtures.isEmpty()) {
+            System.out.println("+----------------------------------------------+");
+            System.out.printf("|                   Hari %d                    |\n", currentDay);
+            System.out.println("+----------------------------------------------+");
+            System.out.println("|     Home Team    |   VS   |    Away Team     |");
+            System.out.println("+----------------------------------------------+");
+    
+            for (int i = 0; i < matchesPerDay && !fixtures.isEmpty(); i++) {
+                Fixture fixture = fixtures.dequeue();
+                System.out.printf("| %-16s |   VS   | %-16s |\n",
+                        fixture.getHomeTeam().getName(),
+                        fixture.getAwayTeam().getName()
+                );
+                tempQueue.enqueue(fixture);
+                matchCount++;
+            }
+    
+            System.out.println("+----------------------------------------------+");
+            currentDay++;
+        }
+        while (!tempQueue.isEmpty()) {
+            fixtures.enqueue(tempQueue.dequeue());
+        }
+    }
+    
 private void playMatches(Scanner scanner) {
     for (int i = 0; i < 3 && !fixtures.isEmpty(); i++) {
         Fixture match = fixtures.dequeue();
         System.out.println("Pertandingan: " + match.displayFixtureInfo());
 
         int homeScore = -1, awayScore = -1;
-
         while (homeScore < 0) {
             System.out.print("Masukkan skor tim tuan rumah: ");
             homeScore = scanner.nextInt();
@@ -436,17 +512,12 @@ private void playMatches(Scanner scanner) {
             teamTree.insert(iterator.next());
         }
     }
-
     private void displayLeagueTable() {
         System.out.println("\nKlasemen La Liga:");
         System.out.println("Team                       P     W     D     L     GF    GA    GD   Pts");
         TeamLinkedList sortedTeams = teamTree.inorderTraversal();
+        System.out.println("------------------------------------------------------------------------");
         sortedTeams.displayAllTeams();
-    }
-
-    private void displayFixtures() {
-        System.out.println("\nJadwal Pertandingan:");
-        fixtures.displayAllFixtures();
     }
 
     private void displayAllPlayers() {
@@ -463,12 +534,18 @@ private void playMatches(Scanner scanner) {
         TeamLinkedList.Iterator iterator = teamList.iterator();
         boolean found = false;
     
+        System.out.println("\nHasil Pencarian Pemain:");
+        System.out.println("--------------------------------------------");
+        
         while (iterator.hasNext()) {
             Team team = iterator.next();
             Player player = team.searchPlayer(playerNamePart); 
             if (player != null) {
-                System.out.println("Pemain ditemukan di tim: " + team.getName());
-                System.out.println(player);
+                System.out.println("Tim: " + team.getName());
+                System.out.println("Nama: " + player.getName());
+                System.out.println("Posisi: " + player.getPosition());
+                System.out.println("Nomor Punggung: " + player.jerseyNumber());
+                System.out.println("--------------------------------------------");
                 found = true;
             }
         }
